@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You so much wifey</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #ffccd5);
+      color: #880e4f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: #d81b60;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 22px;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    li {
+      margin: 15px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f48fb1;
+    }
+
+    .message {
+      font-size: 26px;
+      color: #c2185b;
+      margin-top: 40px;
+    }
+
+    .love-spam-container {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 192, 203, 0.3);
+      overflow: hidden;
+      height: 50px;
+    }
+
+    .love-spam {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 24px;
+      color: #d81b60;
+      animation: scrollText 10s linear infinite;
+    }
+
+    @keyframes scrollText {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+      z-index: -1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { top: 100vh; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: -50px; left: calc(100vw * var(--x)); opacity: 0; }
+    }
+
+    #click-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #d81b60;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Message overlay -->
+  <div id="click-message">Click anywhere to feel the love!</div>
+
+  <h1>I Love You Bunziii 💖</h1>
+
+  <ul>
+    <li>Because you're the prettiest girl I've ever seen </li>
+    <li>Because your smile lights up my entire world </li>
+    <li>Because you're kind, sweet, and caring </li>
+    <li>Because you have a really juicy asssssss </li>
+    <li>Because you make even days special </li>
+    <li>Because your voice is my favorite sound </li>
+    <li>Because you make my cold heart warm with a touch </li>
+    <li>Because I can be myself around you </li>
+    <li>Because you bring love and laughter into my life </li>
+    <li>Because I can’t imagine life without you 💍</li>
+    <li>Because you have nice titties :) </li>
+  </ul>
+
+  <div class="message">
+    I will always love you moreee 😠❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+  </div>
+
+  <div class="love-spam-container">
+    <div class="love-spam">
+      I love you I love you I love you I love you I love you I love you 
+      I love you I love you I love you I love you I love you I love you 
+      I love you I love you I love you I love you I love you I love you 
+      I love you I love you I love you I love you I love you I love you 
+      I love you I love you I love you I love you I love you I love you 
+    </div>
+  </div>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.setProperty('--x', Math.random());
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- Audio setup -->
+  <audio id="bg-audio" loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bg-audio");
+    const clickMsg = document.getElementById("click-message");
+
+    document.body.addEventListener("click", () => {
+      audio.play().catch(e => {
+        console.log("Audio autoplay blocked:", e);
+      });
+      clickMsg.style.display = "none";
+    });
+  </script>
+</body>
+</html>
